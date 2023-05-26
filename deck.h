@@ -1,15 +1,13 @@
-#ifndef DECK_H
-#define DECK_H
-
-#include <stdio.h>
-#include <stdlib.h>
+#ifndef _DECK_H_
+#define _DECK_H_
 
 /**
- * enum kind_e - kinds of cards
- * @SPADE: spade
- * @HEART: heart
- * @CLUB: club
- * @DIAMOND: diamond
+ * enum kind_e - suit of the card
+ *
+ * @SPADE: 0, or spades
+ * @HEART: 1, or hearts
+ * @CLUB: 2, or clubs
+ * @DIAMOND: 3, or diamonds
  */
 typedef enum kind_e
 {
@@ -20,24 +18,23 @@ typedef enum kind_e
 } kind_t;
 
 /**
- * struct card_s - Playing card
- *
- * @value: the Value of the card
+ * struct card_s - card representation
+ * @value: Value of the card
  * From "Ace" to "King"
- * @kind: the Kind of the card
+ * @kind: Kind of the card
  */
 typedef struct card_s
 {
 	const char *value;
-i	const kind_t kind;
+	const kind_t kind;
 } card_t;
 
 /**
  * struct deck_node_s - Deck of card
  *
- * @card: the Pointer to the card of the node
- * @prev: the Pointer to the previous node of the list
- * @next: the Pointer to the next node of the list
+ * @card: Pointer to the card of the node
+ * @prev: Pointer to the previous node of the list
+ * @next: Pointer to the next node of the list
  */
 typedef struct deck_node_s
 {
@@ -47,8 +44,5 @@ typedef struct deck_node_s
 } deck_node_t;
 
 void sort_deck(deck_node_t **deck);
-int card_value(deck_node_t *node);
-int _strcmp(const char *s1, const char *s2);
-size_t list_len_deck(deck_node_t *list);
 
-#endif
+#endif /* _DECK_H_ */
